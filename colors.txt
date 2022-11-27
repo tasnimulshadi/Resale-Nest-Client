@@ -1,0 +1,5 @@
+blue #0097fa
+light blue #65bafc
+
+red #f92f41
+light red #ff6672
