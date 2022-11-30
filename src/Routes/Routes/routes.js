@@ -55,6 +55,36 @@ const routes = createBrowserRouter([
         ]
     },
     {
+        path: '/dashboard',
+        element: <PrivateRoute>
+            <Dash></Dash>
+        </PrivateRoute>,
+        children: [
+            {
+                path: '/dashboard',
+                element: <DashBoard></DashBoard>
+            },
+            {
+                path: '/dashboard/allusers',
+                element: <AuthorizedRoute routeRole="admin">
+                    <Users userRole=""></Users>
+                </AuthorizedRoute>
+            },
+            {
+                path: '/dashboard/allsellers',
+                element: <AuthorizedRoute routeRole="admin">
+                    <Users userRole="seller"></Users>
+                </AuthorizedRoute>
+            },
+            {
+                path: '/dashboard/allbuyers',
+                element: <AuthorizedRoute routeRole="admin">
+                    <Users userRole="buyer"></Users>
+                </AuthorizedRoute>
+            },
+        ]
+    },
+    {
         path: '*',
         element: <ErrorPage></ErrorPage>,
     }
