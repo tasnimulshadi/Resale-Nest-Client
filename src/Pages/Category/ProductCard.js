@@ -4,7 +4,7 @@ import { authContext } from '../../Context/AuthProvider';
 import useRole from '../../Hooks/useRole';
 import { useNavigate } from 'react-router-dom';
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, setSelectedProduct }) => {
     const { user } = useContext(authContext)
     const [role] = useRole(user?.email);
     const navigate = useNavigate();
@@ -60,6 +60,7 @@ const ProductCard = ({ product }) => {
                     {
                         role === 'buyer' &&
                         <label
+                            onClick={() => setSelectedProduct(product)}
                             htmlFor="BookNowModal"
                             className="btn btn-secondary text-white"
                         >Book Now</label>

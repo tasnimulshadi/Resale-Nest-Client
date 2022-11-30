@@ -10,6 +10,7 @@ import ProductCard from './ProductCard';
 const Category = () => {
     const [categoryName, setCategoryName] = useState('All'); // for category name
     const [categories, setCategories] = useState([]); //for category side menu
+    const [selectedProduct, setSelectedProduct] = useState(null); //for modal
     const products = useLoaderData(); // from route for products
 
 
@@ -33,6 +34,7 @@ const Category = () => {
                             products.map(product => <ProductCard
                                 key={product._id}
                                 product={product}
+                                setSelectedProduct={setSelectedProduct}
                             ></ProductCard>)
                         }
                     </div>
@@ -65,7 +67,14 @@ const Category = () => {
                 </div>
             </div>
 
-
+            {/* Modal fotm BookNow */}
+            {
+                selectedProduct &&
+                <BookNowModal
+                    product={selectedProduct}
+                    setSelectedProduct={setSelectedProduct}
+                ></BookNowModal>
+            }
         </div>
     );
 };
