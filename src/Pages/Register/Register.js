@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 const Register = () => {
     const { createUser, signInGoogle, updateUser } = useContext(authContext);
     const [isSellerAccount, setIsSellerAccount] = useState(false);
+    let role = 'buyer'; //default
 
     const navigate = useNavigate();
 
@@ -23,6 +24,11 @@ const Register = () => {
                 // update user with name & default profile img
                 updateUser(name, "https://amedical.az/uploads/posts/2022-09/1664019855_no-profile-picture-icon-15.jpeg")
                     .then(() => {
+                        // console.log(result.user);
+                        if (isSellerAccount) {
+                            role = 'seller';
+                        }
+                        createUserInDB(email, name, "https://amedical.az/uploads/posts/2022-09/1664019855_no-profile-picture-icon-15.jpeg", role, false);
 
                     })
                     .catch((error) => {
@@ -41,6 +47,7 @@ const Register = () => {
             .then((result) => {
                 // console.log(result.user);
                 const user = result.user;
+                createUserInDB(user.email, user.displayName, user.photoURL, "buyer", false);
                 navigate('/');
             })
             .catch((error) => {
@@ -48,6 +55,24 @@ const Register = () => {
                 toast.error(error.message.slice(10));
             });
     }
+
+    const createUserInDB = (email, name, photoURL, role, verified) => {
+        fetch('http://localhost:5000/user', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ email, name, photoURL, role, verified })
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    toast.success('New User Created');
+                    navigate('/');
+                }
+            })
+    }
+
 
     return (
         <div className="hero my-12">

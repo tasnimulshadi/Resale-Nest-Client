@@ -31,6 +31,7 @@ const Login = () => {
         signInGoogle()
             .then((result) => {
                 const user = result.user;
+                createUserInDB(user.email, user.displayName, user.photoURL, "buyer", false);
                 navigate(from, { replace: true })
             })
             .catch((error) => {
@@ -39,7 +40,22 @@ const Login = () => {
             });
     }
 
+    const createUserInDB = (email, name, photoURL, role, verified) => {
+        fetch('http://localhost:5000/user', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ email, name, photoURL, role, verified })
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    toast.success('New User Created');
+                }
+            })
 
+    }
 
     return (
         <div className="hero my-12">
