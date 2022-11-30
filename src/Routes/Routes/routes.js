@@ -1,12 +1,20 @@
 import { createBrowserRouter } from "react-router-dom";
+import Dash from "../../Layout/Dash/Dash";
 import Main from "../../Layout/Main/Main";
+import AddProduct from "../../Pages/AddProduct/AddProduct";
 import Blogs from "../../Pages/Blogs/Blogs";
 import Category from "../../Pages/Category/Category";
+import DashBoard from "../../Pages/Dashboard/DashBoard";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
+import MyBuyers from "../../Pages/MyBuyers/MyBuyers";
+import MyOrders from "../../Pages/MyOrders/MyOrders";
+import MyProducts from "../../Pages/MyProducts/MyProducts";
 import Register from "../../Pages/Register/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import AuthorizedRoute from "../AuthorizedRoute/AuthorizedRoute";
+import Users from "../../Pages/Users/Users";
 import ProductDetails from "../../Pages/Product/ProductDetails";
 
 const routes = createBrowserRouter([
