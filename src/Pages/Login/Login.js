@@ -41,7 +41,7 @@ const Login = () => {
     }
 
     const createUserInDB = (email, name, photoURL, role, verified) => {
-        fetch('http://localhost:5000/user', {
+        fetch('https://ph-assignment-12-used-products-resale-server.vercel.app/user', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

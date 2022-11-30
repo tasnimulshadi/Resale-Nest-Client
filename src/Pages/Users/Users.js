@@ -6,7 +6,7 @@ const Users = ({ userRole }) => {
     // const [users, setUsers] = useState([]);
 
     // useEffect(() => {
-    //     fetch(`http://localhost:5000/users?role=${userRole}`)
+    //     fetch(`https://ph-assignment-12-used-products-resale-server.vercel.app/users?role=${userRole}`)
     //         .then(res => res.json())
     //         .then(data => {
     //             setUsers(data);
@@ -15,7 +15,7 @@ const Users = ({ userRole }) => {
 
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users', userRole],
-        queryFn: () => fetch(`http://localhost:5000/users?role=${userRole}`)
+        queryFn: () => fetch(`https://ph-assignment-12-used-products-resale-server.vercel.app/users?role=${userRole}`)
             .then(res => res.json())
     })
 

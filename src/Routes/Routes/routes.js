@@ -43,14 +43,14 @@ const routes = createBrowserRouter([
                 element: <PrivateRoute>
                     <Category></Category>
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.categoryID}`)
+                loader: ({ params }) => fetch(`https://ph-assignment-12-used-products-resale-server.vercel.app/products/${params.categoryID}`)
             },
             {
                 path: '/product/:productID',
                 element: <PrivateRoute>
                     <ProductDetails></ProductDetails>
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/product/${params.productID}`)
+                loader: ({ params }) => fetch(`https://ph-assignment-12-used-products-resale-server.vercel.app/product/${params.productID}`)
             },
         ]
     },

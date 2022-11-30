@@ -8,7 +8,7 @@ const HomeAdvertiseSection = () => {
     const [advertisedProducts, setAdvertisedProducts] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/products/all?filter=advertise`)
+        fetch(`https://ph-assignment-12-used-products-resale-server.vercel.app/products/all?filter=advertise`)
             .then(res => res.json())
             .then(data => setAdvertisedProducts(data));
     }, [])

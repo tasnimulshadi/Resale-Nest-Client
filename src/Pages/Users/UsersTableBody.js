@@ -7,7 +7,7 @@ const UsersTableBody = ({ user, index, refetch }) => {
 
 
     const handleSellerVarification = (email) => {
-        fetch(`http://localhost:5000/user?email=${email}`, {
+        fetch(`https://ph-assignment-12-used-products-resale-server.vercel.app/user?email=${email}`, {
             method: 'PUT',
             headers: {
                 "content-type": "application/json"

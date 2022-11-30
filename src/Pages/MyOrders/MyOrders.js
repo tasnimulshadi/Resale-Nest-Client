@@ -10,7 +10,7 @@ const MyOrders = () => {
     const { data: bookings = [], refetch } = useQuery({
         queryKey: ['bookings'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/bookings?email=${user.email}`);
+            const res = await fetch(`https://ph-assignment-12-used-products-resale-server.vercel.app/bookings?email=${user.email}`);
             return await res.json();
         }
     });

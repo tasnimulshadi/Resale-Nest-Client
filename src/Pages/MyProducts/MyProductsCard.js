@@ -17,7 +17,7 @@ const MyProductsCard = ({ product, refetch }) => {
 
     // DELETE
     const handleProductDelete = (id) => {
-        fetch(`http://localhost:5000/product/${id}`, {
+        fetch(`https://ph-assignment-12-used-products-resale-server.vercel.app/product/${id}`, {
             method: "DELETE"
         })
             .then(res => res.json())
@@ -33,7 +33,7 @@ const MyProductsCard = ({ product, refetch }) => {
 
     // SOLD
     const handleProductSold = (id) => {
-        fetch(`http://localhost:5000/product/sold/${id}`, {
+        fetch(`https://ph-assignment-12-used-products-resale-server.vercel.app/product/sold/${id}`, {
             method: "PATCH",
             headers: {
                 'content-type': 'application/json'
@@ -53,7 +53,7 @@ const MyProductsCard = ({ product, refetch }) => {
 
     // ADVERTISE
     const handleProductAdvertise = (id) => {
-        fetch(`http://localhost:5000/product/advertise/${id}`, {
+        fetch(`https://ph-assignment-12-used-products-resale-server.vercel.app/product/advertise/${id}`, {
             method: "PATCH",
             headers: {
                 'content-type': 'application/json'

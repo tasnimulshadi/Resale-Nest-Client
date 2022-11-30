@@ -14,7 +14,7 @@ const ProductCard = ({ product, setSelectedProduct }) => {
 
     //get seller info with seller email from product
     useEffect(() => {
-        fetch(`http://localhost:5000/user?email=${email}`)
+        fetch(`https://ph-assignment-12-used-products-resale-server.vercel.app/user?email=${email}`)
             .then(res => res.json())
             .then(data => {
                 setSeller(data);

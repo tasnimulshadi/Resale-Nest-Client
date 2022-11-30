@@ -10,7 +10,7 @@ const MyProducts = () => {
     const { data: products = [], refetch } = useQuery({
         queryKey: ['productsbyseller'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/productsbyseller/${user.email}`);
+            const res = await fetch(`https://ph-assignment-12-used-products-resale-server.vercel.app/productsbyseller/${user.email}`);
             return await res.json();
         }
     });

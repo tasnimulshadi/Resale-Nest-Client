@@ -21,7 +21,7 @@ const BookNowModal = ({ product, setSelectedProduct }) => {
             bookingdate: format(new Date(), 'PP'),
         }
 
-        fetch('http://localhost:5000/booking', {
+        fetch('https://ph-assignment-12-used-products-resale-server.vercel.app/booking', {
             method: "POST",
             headers: {
                 "content-type": "application/json"

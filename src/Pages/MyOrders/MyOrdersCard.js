@@ -16,7 +16,7 @@ const MyOrdersCard = ({ booking, refetch }) => {
 
     //get seller info with seller email from booking
     useEffect(() => {
-        fetch(`http://localhost:5000/user?email=${selleremail}`)
+        fetch(`https://ph-assignment-12-used-products-resale-server.vercel.app/user?email=${selleremail}`)
             .then(res => res.json())
             .then(data => {
                 setSeller(data);
@@ -25,14 +25,14 @@ const MyOrdersCard = ({ booking, refetch }) => {
 
     //get product by product id
     useEffect(() => {
-        fetch(`http://localhost:5000/product/${productid}`)
+        fetch(`https://ph-assignment-12-used-products-resale-server.vercel.app/product/${productid}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [productid])
 
 
     const handlebookingDelete = id => {
-        fetch(`http://localhost:5000/booking/${id}`, {
+        fetch(`https://ph-assignment-12-used-products-resale-server.vercel.app/booking/${id}`, {
             method: "DELETE"
         })
             .then(res => res.json())
