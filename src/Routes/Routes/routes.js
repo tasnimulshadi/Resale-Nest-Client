@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main/Main";
 import Blogs from "../../Pages/Blogs/Blogs";
+import Category from "../../Pages/Category/Category";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
@@ -25,6 +26,11 @@ const routes = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>,
+            },
+            {
+                path: '/category/:categoryID',
+                element:
+                    <Category></Category>
             },
         ]
     },
