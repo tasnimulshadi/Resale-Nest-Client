@@ -71,6 +71,18 @@ const routes = createBrowserRouter([
                 </AuthorizedRoute>
             },
             {
+                path: '/dashboard/myproduct',
+                element: <AuthorizedRoute routeRole="seller">
+                    <MyProducts></MyProducts>
+                </AuthorizedRoute>
+            },
+            {
+                path: '/dashboard/mubuyers',
+                element: <AuthorizedRoute routeRole="seller">
+                    <MyBuyers></MyBuyers>
+                </AuthorizedRoute>
+            },
+            {
                 path: '/dashboard/allusers',
                 element: <AuthorizedRoute routeRole="admin">
                     <Users userRole=""></Users>
