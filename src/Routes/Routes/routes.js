@@ -65,6 +65,12 @@ const routes = createBrowserRouter([
                 element: <DashBoard></DashBoard>
             },
             {
+                path: '/dashboard/myorders',
+                element: <AuthorizedRoute routeRole="buyer">
+                    <MyOrders></MyOrders>
+                </AuthorizedRoute>
+            },
+            {
                 path: '/dashboard/allusers',
                 element: <AuthorizedRoute routeRole="admin">
                     <Users userRole=""></Users>
